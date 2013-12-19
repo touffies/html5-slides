@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>HTML5 - OpenStudio</title>
+
+		<meta name="description" content="Formation HTML5">
+		<meta name="author" content="Christophe LAFFONT">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Reveal CSS -->
+		<link rel="stylesheet" href="revealjs/css/reveal.min.css">
+		<link rel="stylesheet" href="revealjs/css/theme/sky.css" id="theme">
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="openstudio/css/custom.css">
+
+		<!-- Syntax highlighting CSS -->
+		<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="revealjs/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="revealjs/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>HTML5</h1>
+					<h3>Openstudio</h3>
+					<p>
+						<small>Par <a href="http://www.christophelaffont.com">Christophe Laffont</a> / <a href="http://twitter.com/touffies">@touffies</a></small>
+					</p>
+					<img src="openstudio/img/html5/HTML5_Logo_128.png" alt="HTML5 logo">
+				</section>
+
+				<!-- Table of Contents -->
+				<section>
+					<h3>Plan de la présentation</h3>
+					<ul>
+					    <li>Historique</li>
+					    <li>Structure et sémantiques
+						    <ul>
+						        <li>Structure d'un document</li>
+						        <li>Structure du contenu</li>
+						        <li>Les Formulaires</li>
+						    </ul>
+					    </li>
+					    <li>Mutlimédia / Grapghique</li>
+					    <li>CSS3</li>
+						<li>Et plus encore
+						    <ul>
+						        <li>Outils</li>
+						        <li>Framework CSS</li>
+						    </ul>
+					    </li>
+					    <li>Atelier pratique
+						    <ul>
+						        <li>Réalisons d'une page web ensemble</li>
+						    </ul>
+					    </li>
+					</ul>
+				</section>
+
+				<!-- Histoire -->
+				<section>
+					<section>
+						<h2>Un peu d'histoire</h2>
+					</section>
+					<section class='ta-l'>
+						<p><strong>1990 à 2004</strong></p>
+						<ul>
+							<li>Création du HTML par le W3C (<a href="http://>www.w3.org/" target="_blank">www.w3.org</a>)</li>
+							<li>Standards Web pour XHTML et HTML</li>
+						</ul>
+					
+						<div class="fragment">
+							<p><strong>2004</strong></p>
+							<ul>
+								<li>W3C travail sur XHTML 2.0</li>
+								<li>Création du WHATWG (<a href="http://www.whatwg.org/" target="_blank">www.whatwg.org</a>)</li>
+							</ul>
+						</div>
+
+						<aside class="notes">
+							Voir : http://fr.slideshare.net/menasselyahia/html5-and-css3-16164929
+							
+							W3C : World Wide Web Consortium est un organisme de normalisation à but non lucratif, fondé en octobre 1994 par Tim Berners Lee.
+							WHATWG : Web Hypertext Application Technology Working Group (Opera, Mozilla, Apple) est une collaboration non officielle des différents développeurs de navigateurs web ayant pour but le développement de nouvelles technologies destinées à faciliter l'écriture et le déploiement d'applications à travers le Web.
+						</aside>
+					</section>
+
+					<section class='ta-l'>
+						<p><strong>2006</strong></p>
+						<ul>
+							<li>W3C s'intéresse au développement d'HTML5</li>
+						</ul>
+
+						<div class="fragment">
+							<p><strong>2007</strong></p>
+							<ul>
+								<li>W3C + WHATWG = HTML5</li>
+								<li>2 groupes; 2 spécifications</li>
+							</ul>
+						</div>
+						
+						<div class="fragment">
+							<p><strong>2008</strong></p>
+							<ul>
+								<li>Working Draft publique de la spécification d'HTML5</li>
+							</ul>
+						</div>
+
+						<div class="fragment">
+							<p><strong>2009</strong></p>
+							<ul>
+								<li>W3C abandonne XHTML 2.0</li>
+								<li>Toutes les ressources travaillent maintenant sur l'implémentation des spécifications pour HTML5</li>
+							</ul>
+						</div>
+
+						<aside class="notes">
+							HTML5 (HyperText Markup Language 5) est la nouvelle version du standard HTML. Il apporte non seulement l'utilisation de média riches (vidéo, audio, SVG, etc.) mais aussi des fonctionnalités permettant le développement d'applications web bien plus attractives et interactives.
+						</aside>
+					</section>
+
+					<section>
+						<h2>caniuse.com</h2>
+					</section>
+				</section>
+
+				
+				<!-- Structure et Sémantiques -->
+				<section>
+				    <section>
+				        <img src="openstudio/img/html5/tech/HTML5_Semantics_128.png" alt="HTML5 logo pour Sémantiques">
+				        <h3>Structure et sémantiques</h3>
+				    </section>
+					<!-- Structure d'un document -->
+				    <section>
+				        <h3>Structure d'un document</h3>
+				    </section>
+
+				    <section>
+				        <h3>Doctype</h3>
+				        <p>La déclaration doctype<sup>*</sup> indiquant la méthode de rendu du navigateur :</p>
+				        <pre><code>
+&lt;!DOCTYPE html
+          PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+				        </code></pre>
+				        <p>est remplacé par : </p>
+				        <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+				        <small><sup>*</sup> La déclaration du Doctype est obligatoire.</small>
+				    
+				        <aside class="notes">
+				        	Cela permet au navigateur ne supportant pas encore HTML5 de passer en mode standard et ainsi d'ignorer les balises inconnues.
+				        	Il est beaucoup plus simple que les précédents doctypes, et plus court. Il est ainsi plus facile à retenir et réduit le nombre d'octets devant être téléchargés.
+				        </aside>
+				    </section>
+
+				    <section>
+				        <h3>Elément racine</h3>
+				        <p>L'élément racince &lt;html&gt; :</p>
+				        <pre><code>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr"&gt;</code></pre>
+				        <p>est simplifié par : </p>
+				        <pre><code>&lt;html lang="fr" dir="ltr"&gt;</code></pre>
+
+					    <aside class="notes">
+					       En pratique, pour des sites ayant un contenu dans une langue européenne, nous omettons l'attribut dir
+					    </aside>
+				    </section>
+
+				    <section>
+				        <h3>Métadonnées du document</h3>
+				        <p>L'élément &lt;head&gt; englobe un certain nombre d'informations utiles pour l'affichage et le référencement :</p>
+				        <pre><code>
+&lt;head&gt;
+	&lt;meta charset="utf-8"&gt;
+	&lt;title&gt;Titre de la page&lt;/title&gt;
+	&lt;meta name="descritpion" content=""&gt;
+	
+	&lt;base href="http://www.monsite.com"&gt;
+
+	<!-- Stylesheet -->
+	&lt;link rel="stylesheet" href="css/style.css"&gt;
+	&lt;style&gt;&lt;/style&gt;
+
+	<!-- Javascript -->
+	&lt;script src="js/script.js"&gt;&lt;/script&gt;
+	&lt;script&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+				        </code></pre>
+
+				        <small>Les éléments de type Metadata : base, link, meta, style, title.</small>
+
+					    <aside class="notes">
+					        Le processus de détection de l'encodage s'effectue dans l'ordre :
+					        <ul>
+					        	<li>Vérification de la présence d'un header HTTP "Content-Type"</li>
+					        	<li>Détection du BOM en début de fichier</li>
+								<li>Utilisation d'une balise meta spécifique (<meta charset="UTF-8">)</li>
+					        </ul>
+
+					        L'élément base fournit l'adresse de base de tous les fichiers utilisés dans la page
+					    </aside>
+				    </section>
+
+
+				     <section>
+				        <h3>Structure de base</h3>
+				        <pre><code>
+&lt;!doctype html&gt;
+&lt;html lang="fr"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta name="descritpion" content=""&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    
+  &lt;/body&gt;
+&lt;/html&gt;
+				        </code></pre>
+				        <small>Avec HTML5, le contenu est simplifié.</small>
+
+				       	<aside class="notes">
+				       		<ul>
+				       			<li>L'élément &lt;body&gt; peut être omis (pas pour IE8 et ses ancêtres)</li>
+				       			<li>L’enveloppement par l’élément &lt;head&gt; aussi</li>
+				       		</ul>
+				       	</aside>
+				    </section>
+
+				    <section>
+				        <h3>Tolérance</h3>
+
+				        <pre><code>
+&lt;img src="html5" alt="html5" /&gt;
+&lt;p class="html5"&gt;html5&lt;/p&gt;
+
+&lt;img src="" alt="" /&gt;
+&lt;p class=""&gt;html5
+
+&lt;IMG src="" ALT="" /&gt;
+&lt;P class=""&gt;html5&lt;/P&gt;
+
+&lt;img src=html5 alt=html5&gt;
+&lt;p class=html5&gt;html5&lt;/p&gt;
+				        </code></pre>
+				        <small>HTML5 est plus permissif.</small>
+
+				        <aside class="notes">
+					        <ul>
+					         	<li>Les éléments et les attributs sont insensibles à la casse.</li>
+					         	<li>Plus de balise auto-fermante, certaines balises fermantes sont optionnelles (html, head, body, li, ...)</li>
+					         	<li>Plus de typage de script & CSS</li>
+					         	<li>Intégration des caractères spéciaux en utf-8 dans les attributs ID</li>
+					         	<li>Mélanger majuscule et minuscule</li>
+								<li>Guillemets facultatifs dans les attributs</li>
+					        </ul>
+					    </aside>
+				    </section>
+					
+					<!-- Structure du contenu -->
+				    <section>
+				        <h3>Structure du contenu</h3>
+
+				        <aside class="notes">
+				        	Voir : https://developer.mozilla.org/fr/docs/Web/HTML/Element
+				        </aside>
+				    </section>
+
+				    <!-- Abandons -->
+				    <section>
+				        <h3>Abandons</h3>
+				        <ul>
+					        <li><b>Au profit de css :</b> <br>&lt;basefont&gt;, &lt;big&gt;, &lt;center&gt;, &lt;font&gt;, &lt;strike&gt;, &lt;tt&gt;</li>
+					        <li><b>Pour des raisons d'accessibilité :</b> <br>&lt;frame&gt;, &lt;frameset&gt;, &lt;noframe&gt;</li>
+					        <li><b>Et d'autres :</b> <br>&lt;acronym&gt;, &lt;applet&gt;, &lt;blink&gt;, &lt;tt&gt;, etc.</li>
+				        </ul>
+				    </section>
+				    
+				    <!-- Redéfinitions -->
+				    <section>
+				        <h3>Redéfinitions</h3>
+				        <ul>
+				            <li>&lt;heading&gt;</li>
+				            <li>&lt;div&gt;</li>
+				            <li>&lt;a&gt;</li>
+				            <li>&lt;cite&gt;</li>
+				            <li>&lt;small&gt;</li>
+				        </ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;heading&gt;</h3>
+				    	<ul>
+		                    <li>Toujours commencer les titres par &lt;h1&gt; (Maximum de 6 niveaux) et if faut évitez de sauter des niveaux de titre.</li>
+		                    <li>Il est recommendé d'avoir un seul titre de premier niveau sur chaque <del>document</del> section.</li>
+		                </ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;div&gt;</h3>
+				    	<p>La balise &lt;div&gt; n'a pas de valeur sémantique, mais peut servir à structurer du contenu.</p>
+				    </section>
+				    <section>
+				    	<h3>&lt;a&gt;</h3>
+				    	<p>La balise &lt;a&gt; peut contenir tout type d’élément (titre, paragraphe, liste, table…) sauf les éléments d’interaction (lien, bouton, champs de formulaire).</p>
+				        <pre><code>
+&lt;a href="chemin/produit"&gt;
+	&lt;h2&gt;Titre du produit&lt;/h2&gt;
+	&lt;p&gt;Paragraphe du produit&lt;/p&gt;
+&lt;/a&gt;
+				        </code></pre>
+				    </section>
+				    <section>
+				    	<h3>&lt;cite&gt;</h3>
+				    	<ul>
+				    		<li>En HTML5, l'utilisation de cet attribut pour marquer le nom d'une personne n'est plus considéré comme sémantiquement correct.</li>
+							<li>Il faut utiliser l'attribut &lt;cite&gt; d'un élément &lt;blockquote&gt; ou &lt;q&gt; pour fournir une ressource en ligne liée à une source.</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;small&gt;</h3>
+				    	<p>La balise &lt;small&gt; a pour but de représenter des annotations et des petits caractères comme les informations légales ou liées au copyright.</p>
+				    </section>
+
+				    <!-- Restructurations -->
+				    <section>
+				        <h3>Restructurations</h3>
+				        <ul>
+				            <li>&lt;strong&gt; et &lt;b&gt;</li>
+				            <li>&lt;em&gt; et &lt;i&gt;</li>
+				        </ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;strong&gt;/&lt;b&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;strong&gt; a une valeur sémantique et réprésente un texte d'une certaine <strong>importance</strong>.</li>
+				    		<li>La balise &lt;b&gt; n'a pas de valeur sémantique, elle représente un élément de présentation. (Il faut l'utiliser lorsque qu'aucun autre ne convient.)</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;em&gt;/&lt;i&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;em&gt; a une valeur sémantique et sert à marquer un texte sur lequel on veut <em>insister</em>. (On ne doit pas seulement l'utiliser pour appliquer un style italique.)</li>
+				    		<li>La balise &lt;i&gt; n'a pas de valeur sémantique, elle représente un élément de présentation. (Un texte prononcé par quelqu'un d'autre)</li>
+				    	</ul>
+				    </section>
+
+				    <!-- Nouveautés -->
+				    <section>
+						<h3>Les nouvelles balises</h3>
+				        <h4>Balises structurantes</h4>
+				        <ul>
+				            <li>&lt;header&gt;</li>
+				            <li>&lt;nav&gt;</li>
+				            <li>&lt;main&gt;</li>
+				            <li>&lt;section&gt;</li>
+				            <li>&lt;article&gt;</li>
+				            <li>&lt;aside&gt;</li>
+				            <li>&lt;footer&gt;</li>
+				        </ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;header&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;header&gt; est utilisé pour le document mais aussi pour une &lt;section&gt; ou un &lt;article&gt;.</li>
+				    		<li>Il peut contenir des éléments de titre, mais aussi d'autres éléments tels qu'un logo, un formulaire de recherche, etc.</li>
+				    	</ul>
+				    </section>
+            	    <section>
+				    	<h3>&lt;nav&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;nav&gt; représente une section d'une page ayant des liens vers d'autres pages ou des fragments de cette page.</li>
+				    		<li>Un document peut avoir plusieurs éléments &lt;nav&gt;, par exemple un pour la navigation sur le site et  un autre pour la navigation au sein de la page.</li>
+				    		<li>En revanche, l'élément &lt;footer&gt; possède souvent différents liens, il n'a pour autant pas besoin d'être dans un élément &lt;nav&gt;.</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;main&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;main&gt; n'a pas de valeur sémantique et représente le contenu principal du &lt;body&gt;. (Il est unique dans un document).</li>
+				    		<li>Il ne doit pas être un enfant d'un élément &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;, &lt;header&gt; ou d'un élément &lt;nav&gt;</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;section&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;section&gt; représente une section générique d'un document, c'est à dire un groupement thématique de contenu, généralement avec une en-tête.</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;article&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;article&gt; représente du contenu autonome qui est prévu pour être distribué ou réutiliser indépendamment.</li>
+				    		<li>Un élément &lt;article&gt; peut-être imbriqué dans un autre. (Les commentaires d'une parution de blog peuvent être un élément &lt;article&gt; inclus dans l'&lt;article&gt; représentant la parution en elle-même)</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;aside&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;aside&gt; est une section de la page dont le contenu est indirectement lié à ce qui l'entoure. (On pourrait y trouver un glossaire, des publicités, la biographie de l'auteur, ou, dans les applications web, des informations sur le profil ou des liens vers des blogs similaires.)</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;footer&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;footer&gt; représente le pied de page, ou le pied de la section, ou de la racine de sectionnement la plus proche (c'est à dire, son parent &lt;article&gt;, &lt;aside&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;blockquote&gt;, &lt;body&gt;, &lt;details&gt;, &lt;fieldset&gt;, &lt;figure&gt;, &lt;td&gt; le plus proche).</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;hgroup&gt;</h3>
+				    	<ul>
+				    		<li>La balise &lt;hgroup&gt; a été retiré du HTML5 (W3C), mais est resté dans la version HTML du WHATWG. Son avenir est incertain, <mark>il est fortement conseillé d'éviter de l'utiliser</mark>.</li>
+				    	</ul>
+				    </section>	
+					<section>
+						<h3>Exemple de structure</h3>
+					 	<pre><code>&lt;header&gt;Titre de page&lt;/header&gt;
+&lt;nav&gt;Menu principal&lt;/nav&gt;	
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;header&gt;
+	    	&lt;h1&gt;Titre de l'Article&lt;/h1&gt;
+	    	&lt;p&gt;Publié le &lt;time datetime=&quot;2013-12-22T16:31:24+01:00&quot;&gt;22 décembre 2013&lt;/time&gt;&lt;/p&gt;
+        &lt;/header&gt;
+        &lt;section&gt;
+        		&lt;h1&gt;Titre de la Section&lt;/h1&gt;
+        		&lt;div class="content"&gt;Contenu de l'Article&lt;/div&gt;
+        &lt;/section&gt;
+        &lt;footer&gt;Une note de fin de page&lt;/footer&gt;
+    &lt;/article&gt;
+    &lt;aside&gt;Contenu complémentaire&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;Copyright &copy; 2013&lt;/footer&gt;</code></pre>
+            	    </section>
+
+				    <!-- Encore plus de balises -->
+				    <section>
+						<h3>Les autres balises</h3>
+				        <ul>
+				            <li>&lt;figure&gt;</li>
+				            <li>&lt;mark&gt;</li>
+				            <li>&lt;time&gt;</li>
+				            <li>&lt;details&gt;</li>
+				            <li>&lt;summary&gt;</li>
+				            <li>&lt;meter&gt;</li>
+				            <li>&lt;datalist&gt;</li>
+				        </ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;figure&gt;</h3>
+				    	<p>La balise &lt;figure&gt; représente un contenu indépendant, habituellement accompagné d'une légende grâce à l'élément &lt;figcaption&gt;.</p>
+				    	<pre><code>
+&lt;figure&gt;
+	&lt;img src="img/logo.png" alt="description de l'image"&gt;
+	&lt;img src="img/partenaire.png" alt="description de l'image"&gt;
+	&lt;figcaption&gt;Image de Openstudio.fr&lt;/figcaption&gt;
+&lt;/figure&gt;
+				        </code></pre>
+				    </section>
+				    <section>
+				    	<h3>&lt;mark&gt;</h3>
+				    	<p>La balise &lt;mark&gt; représente du <mark>texte surligné</mark> et est utilisé pour mettre en avant des blocs de textes d'une certaine pertinence.</p>
+				    </section>
+				    <section>
+				    	<h3>&lt;time&gt;</h3>
+				    	<p>La balise &lt;time&gt; représente soit une heure sur une horloge fonctionnant sur 24 heures ou une date précise du calendrier grégorien.</p>
+						<pre><code>
+&lt;time datetime="2013-12-22T16:31:24+01:00"&gt;22 décembre 2013&lt;/time&gt;
+&lt;time datetime="2013-12-22"&gt;Aujourd'hui&lt;/time&gt;
+&lt;time datetime="2013-12-22" pubdate&gt;22 décembre 2013&lt;/time&gt;
+						</code></pre>
+				    </section>
+				    <section>
+				    	<h3>&lt;details&gt;</h3>
+				    	<p>La balise &lt;details&gt; est utilisé comme outil de communication à partir duquel l'utilisateur récupère des informations supplémentaires.</p>
+				    	<pre><code>
+&lt;details&gt;
+  &lt;summary&gt;Démo détails&lt;/summary&gt;
+  &lt;p&gt;Plus d'infos à propos des détails.&lt;/p&gt;
+&lt;/details&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <details>
+							<summary>Démo détails</summary>
+							<p>Plus d'infos à propos des détails.</p>
+						</details>
+				    </section>
+				    <section>
+				    	<h3>&lt;summary&gt;</h3>
+			    		<p>La balise &lt;summary&gt; est utilisé comme un sommaire, une légende ou la légende du contenu d'un élément &lt;details&gt;.</p>
+				    </section>
+				    
+				    <!-- Formulaires -->
+				    <section>
+				        <h3>Les Formulaires</h3>
+				    </section>
+				    <section>
+				    	<h3>Nouveaux types de champs</h3>
+						<pre><code>
+&lt;input type="text" value=""&gt;
+				        </code></pre>				    	
+				    	<ul style="-webkit-column-count:3; -webkit-column-gap:5em;">
+				    		<li>color</li>
+				    		<li>date</li>
+				    		<li>datetime</li>
+				    		<li>email</li>
+				    		<li>month</li>
+				    		<li>number</li>
+				    		<li>range</li>
+				    		<li>tel</li>
+				    		<li>time</li>
+				    		<li>url</li>
+				    		<li>week</li>							
+				    		<li>zip</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>&lt;emal&gt;</h3>
+			    		<p>La type &lt;email&gt; représente une adresse email.</p>
+			    		<pre><code>
+&lt;input type="email" name="email"&gt;
+
+&lt;input type="email" name="email" pattern=""&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <form onsubmit="return false;">
+				        	<input type="email" name="email" style="width:50%;padding:6px;" placeholder="Validation par défaut">
+				        	<button type="submit">Tester</button>
+			    		</form>
+			    		<form onsubmit="return false;">
+				        	<input type="email" name="email" style="width:50%;padding:6px;" placeholder="Validation par regex">
+			   				<button type="submit">Tester</button>
+			    		</form> 			
+				    </section>
+				    <section>
+				    	<h3>&lt;color&gt;</h3>
+			    		<p>La type &lt;color&gt; est utilisé pour faciliter la sélection d'une couleur.</p>
+			    		<pre><code>
+&lt;label for="color"&gt;Sélectionner une couleur :&lt;/label&gt;
+&lt;input type="color" name="color" id="color" value="ff0000"&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <label for="color">Sélectionner une couleur :</label>
+				        <input type="color" name="color" id="color" value="ff0000" style="width:30%;padding:6px;">
+				    </section>
+				    <section>
+				    	<h3>&lt;date&gt;</h3>
+			    		<p>La type &lt;date&gt; est utilisé pour faciliter la sélection d'une date.</p>
+			    		<pre><code>
+&lt;input type="date" name="date" id="date" value="2013-12-24"&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <input type="date" name="date" id="date" value="2013-12-24" style="width:30%;padding:6px;">
+				    </section>
+				    <section>
+				    	<h3>&lt;range&gt;</h3>
+			    		<p>La type &lt;range&gt; est utilisé pour afficher un slider.</p>
+			    		<pre><code>
+&lt;input type="range" name="range" id="range" min="0" max="20" step="1" value="0"&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <input type="range" name="range" id="range" min="0" max="20" step="1" value="0" style="width:50%;padding:6px;">
+				    </section>
+				    <section>
+				    	<h3>Placeholder</h3>
+				    	<p>Donne une indication à l'utilisateur sur ce qui peut être entré dans le champ.</p>
+						<pre><code>
+&lt;input type="text" name="firstame" placeholder="Nom de famille"&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <input type="text" name="firstame" style="width:50%;padding:6px;" placeholder="Nom de famille">				    
+				    </section>
+				    <section>
+				    	<h3>Autofocus</h3>
+				    	<p>Au chargement du document, celui-ci est sélectionné.</p>
+						<pre><code>
+&lt;input type="text" name="firstame" autofocus&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <input type="text" name="firstame" style="width:50%;padding:6px;" autofocus>				    
+				    </section>
+				    <section>
+				    	<h3>Auto-complete</h3>
+				    	<p>Empêche le navigateur de se souvenirs des informations entrés dans le formulaire/champ.</p>
+						<pre><code>
+&lt;form action="/" autocomplete="off"&gt;
+
+&lt;input type="text" name="firstame" autocomplete="off"&gt;
+				        </code></pre>
+				    </section>
+				    <section>
+				    	<h3>Required</h3>
+				    	<p>Previent la soumission du formulaire si les champs requis non pas été complétés.</p>
+						<pre><code>&lt;style&gt;
+	input:required { border-color: blue; }
+	input:valid { border-color: green; }
+	input:invalid { border-color: #ff0000; }
+&lt;/style&gt;						
+&lt;input type="text" name="firstame" required&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <form onsubmit="alert('Yeah!!');return false;">
+				        	<input type="text" name="firstame" id="valid" style="width:50%;padding:6px;" required>	
+				        	<button type="submit">Tester</button>
+				        </form>			    
+				    </section>
+				    <section>
+				    	<h3>Datalist</h3>
+				    	<p>Afficher une liste de choix pour un champ.</p>
+						<pre><code>
+&lt;input type="text" name="country" list="country" &gt;
+&lt;datalist id="country"&gt;
+	&lt;option value="Espagne"&gt;Espagne&lt;/option&gt;
+	&lt;option value="France"&gt;France&lt;/option&gt;
+	&lt;option value="Italie"&gt;Italie&lt;/option&gt;
+&lt;/datalist&gt;
+				        </code></pre>
+				        <p>Résultats :</p>
+				        <input type="text" name="country" list="country" placeholder="Qu'elle est votre pays de résidence" style="width:50%;padding:6px;">	
+				        <datalist id="country">
+							<option value="Espagne">Espagne</option>
+							<option value="France">France</option>
+							<option value="Italie">Italie</option>
+						</datalist>			    
+				    </section>
+				</section> 
+
+
+				<!-- Multimédia -->
+				<section>
+				    <section>
+				        <img src="openstudio/img/html5/tech/HTML5_Multimedia_128.png" alt="HTML5 logo pour Mutlimédia"><img src="openstudio/img/html5/tech/HTML5_3D_effects_128.png" alt="HTML5 logo pour Graphisme">	
+				        <h3>Mutlimédia / Graphique</h3>
+				    </section>
+					<section>
+		                <h3>&lt;audio&gt;</h3>
+		                <p>La balise &lt;audio&gt; désigne du contenu sonore présent dans un document.</p>
+		                <pre><code>
+&lt;audio controls=&quot;controls&quot;&gt;
+  &lt;source src=&quot;openstudio/audio/cheval.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  &lt;source src=&quot;openstudio/audio/cheval.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+	Votre navigateur ne gère pas l'élément audio
+&lt;/audio&gt;
+						</code></pre>
+		                <p>Résultats :</p>
+		                <audio controls="controls">
+		                 	<source src="openstudio/audio/cheval.ogg" type="audio/ogg">
+		                  	<source src="openstudio/audio/cheval.mp3" type="audio/mpeg">
+		                	Votre navigateur ne gère pas l'élément audio.
+		                </audio>
+		            </section>
+					<section>
+		                <h3>&lt;video&gt;</h3>
+		                <p>La balise &lt;video&gt; est utilisé pour intégrer des vidéo.</p>
+		                <pre><code>
+&lt;video id="video" width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;
+  &lt;source src=&quot;openstudio/video/film.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;openstudio/video/film.ogg&quot; type=&quot;video/ogg&quot;&gt;
+	Votre navigateur ne gère pas l'élément video
+&lt;/video&gt;
+&lt;script&gt;var video = document.getElementById("video");&lt;/script&gt;
+&lt;button type="button" onclick="video.play();"&gt;Play&lt;/button&gt;
+&lt;button type="button" onclick="video.pause();"&gt;Pause&lt;/button&gt;
+						</code></pre>
+		                <p>Résultats :</p>
+		                <video id="video" width="320" height="240" controls="controls">
+		                  <source src="openstudio/video/film.mp4" type="video/mp4">
+		                  <source src="openstudio/video/film.ogg" type="video/ogg">
+		                	Votre navigateur ne gère pas l'élément video.
+		                </video>
+		                <br>
+		                <script>var video = document.getElementById("video");</script>
+		                <button type="button" onclick="video.play();">Play</button>
+		                <button type="button" onclick="video.pause();">Pause</button>
+		                <br>
+		                <aside class="notes">
+		                	Chrome 3.0+ (Ogg, H264)
+		                	Firefox 3.5+ (Ogg)
+		                	Safari 3.2 (H264)
+		                	Opera 10.5 (Ogg)
+		                </aside>
+		            </section>
+		            <section>
+	                    <h3>&lt;canvas&gt;</h3>
+	                    <p>La balise &lt;canvas&gt; permet de modifier une zone graphique via un script.</p>
+	                    <pre><code>&lt;canvas id=&quot;canvas&quot; width=&quot;800&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+    var canvas = document.getElementById(&#x27;canvas&#x27;);
+    var context = canvas.getContext(&#x27;2d&#x27;);
+    context.fillRect(250, 25, 150, 100);
+    context.beginPath();
+    context.arc(450, 110, 100, Math.PI * 1/2, Math.PI * 3/2);
+    context.lineWidth = 15;
+    context.lineCap = 'round';
+    context.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+    context.stroke();
+&lt;/script&gt;</code></pre>
+						<p>Résultats :</p>
+	                    <canvas id="canvas" width="800" height="200"></canvas>
+	                    <script>
+							var canvas = document.getElementById("canvas");
+							var context = canvas.getContext("2d");
+							context.fillRect(250, 25, 150, 100);
+
+							context.beginPath();
+							context.arc(450, 110, 100, Math.PI * 1/2, Math.PI * 3/2);
+							context.lineWidth = 15;
+							context.lineCap = 'round';
+							context.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+							context.stroke();
+						</script>
+	                </section>
+	                <section>
+						<h3>&lt;svg&gt;</h3>
+						<pre><code>&lt;svg&gt;
+    &lt;defs&gt;
+    	&lt;linearGradient id="myGradient" x1="0%" y1="100%" x2="100%" y2="0%"&gt;
+    		&lt;stop offset="5%" stop-color="red"&gt;&lt;/stop&gt;
+    		&lt;stop offset="95%" stop-color="blue" stop-opacity="0.5"&gt;&lt;/stop&gt;
+    	&lt;/linearGradient&gt;
+    &lt;/defs&gt;
+    &lt;circle id="myCircle" class="important" cx="50%" cy="50%" r="100" fill="url(#myGradient)"&gt;
+&lt;/svg&gt;</pre></code>
+	                	<p>Résultats :</p>
+						<svg>
+						    <defs>
+						    	<linearGradient id="myGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+						    		<stop offset="5%" stop-color="red"></stop>
+						    		<stop offset="95%" stop-color="blue" stop-opacity="0.5"></stop>
+						    	</linearGradient>
+						    </defs>
+						    <circle id="myCircle" class="important" cx="50%" cy="18%" r="100" fill="url(#myGradient)">
+						</svg>
+	                </section>
+				</section>
+
+				<!-- Multimédia -->
+				<section>
+				    <section>
+				        <img src="openstudio/img/html5/tech/HTML5_Styling_128.png" alt="HTML5 logo pour CSS">	
+				        <h3>CSS 3</h3>
+				    </section>
+				    <section>
+				    	<h3>Les préfixes</h3>
+				    	<p>Les spécifications recensent une douzaine de préfixes propriétaires (appelés aussi préfixes vendeurs) dont les plus fréquemment rencontrés sont attribués aux navigateurs web principaux, à savoir :</p>
+						<pre><code>
+[prefix][propriété CSS] ==> -webkit-border-radius: 10px;
+				    	</pre></code>
+				    	<ul>
+				    		<li><mark>-moz-</mark> : Firefox ou Thunderbird (Moteur de rendu Gecko)</li>
+				    		<li><mark>-ms-</mark> : Microsoft Internet Explorer</li>
+				    		<li><mark>-o-</mark> : Opera</li>
+				    		<li><mark>-webkit-</mark> : Safari et Chrome (Moteur de rendu WebKit)</li>
+				    		<li><mark>-khtml-</mark> : Linux KDE (Moteur de rendu KHTML)</li>
+				    	</ul>
+				    </section>
+				    <section>
+				    	<h3>Bordure arrondie</h3>
+				    	<pre><code>
+.round {
+background: #ccc;
+-webkit-border-radius: 20px; /* Android ≤ 1.6, iOS 1-3.2, Safari 3-4 */
+border-radius: 20px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 10.50+, Safari 5+ */
+}
+				    	</pre></code>
+				    	<p>Résultats :</p>
+				    	<div class="round"></div>
+				    </section>
+				    <section>
+				    	<h3>CSS Sélecteur</h3>
+				    </section>
+				    <section>
+				    	<h3>Colonne</h3>
+			    		<div class="preview">
+							<span class="tag">-webkit-column-count:</span> <mark id="columns-no-value">3</mark>; <input type="range" min="1" max="6" value="2" onchange="changeColumnNoSlider(event)"><br>
+							<span class="tag">-webkit-column-rule:</span> 1px solid #bbb;<br>
+							<span class="tag">-webkit-column-gap:</span> 2em;<br>
+							
+			    		</div>
+			            <div id="columns">
+							<p>
+								In March 1936, an unusual confluence of forces occurred in 
+								Santa Clara County.
+							</p>
+							<p>
+								A long cold winter delayed the blossoming of the millions of 
+								cherry, apricot, peach, and prune plum trees covering hundreds 
+								of square miles of the Valley floor. Then, unlike many years, 
+								the rains that followed were light and too early to knock 
+								the blossoms from their branches.
+							</p>
+							<p>
+								Instead, by the billions, they all burst open at once. 
+								Seemingly overnight, the ocean of green that was the Valley 
+								turned into a low, soft, dizzyingly perfumed cloud of pink 
+								and white. Uncounted bees and yellow jackets, newly born, 
+								raced out of their hives and holes, overwhelmed by this 
+								impossible banquet.
+							</p>
+							<p>
+								Then came the wind.
+							</p>
+							<p>
+								It roared off the Pacific Ocean, through the nearly 
+								uninhabited passes of the Santa Cruz Mountains and then, 
+								flattening out, poured down into the great alluvial plains 
+								of the Valley. A tidal bore of warm air, it tore along the 
+								columns of trees, ripped the blossoms apart and carried them 
+								off in a fluttering flood of petals like foam rolling up a 
+								beach.
+							</p>
+							<p>
+								This perfumed blizzard hit Stevens Creek Boulevard, a two-lane
+								road with a streetcar line down its center, that was the main
+								road in the West Valley. It froze traffic, as drivers found
+								themselves lost in a soft, muted whiteout. Only the streetcar,
+								its path predetermined, passed on...
+							</p>
+						</div>
+						<script defer>
+						function changeColumnNoSlider(event) {
+							var val = event.target.value;
+							document.getElementById('columns-no-value').textContent = val;
+							var el = document.getElementById('columns');
+							el.style.webkitColumnCount = val;
+							el.style.MozColumnCount = val;
+						}
+						</script>
+					</section>
+					<section>
+						<h3>Opacité</h3>
+			    		<div class="preview">
+							<span class="tag">color: </span> rgba(255, 0, 0, <mark id="opacity-color-value">0.68</mark>); <input id="opacity-color" type="range" min="0" max="100" value="75" onchange="changeOpacity()"><br>
+							<span class="tag">background: </span> rgba(255, 0, 0, <mark id="opacity-background-value">0.68</mark>); <input id="opacity-background" type="range" min="0" max="100" value="75" onchange="changeOpacity()"><br>
+			    		</div>
+			    		<div id="opacity-body">
+			              	<div id="opacity-example">
+			                	Démo opacité
+			              	</div>
+			            </div>
+			    		<script defer>
+			            function changeOpacity() {
+			                var textOpacity = (document.getElementById('opacity-color').value / 100).toFixed(2);
+			                var backgroundOpacity = (document.getElementById('opacity-background').value / 100).toFixed(2);
+
+			                var el = document.getElementById('opacity-example');
+
+			                el.style.color = 'rgba(255, 0, 0, ' + textOpacity + ')';
+			                el.style.background = 'rgba(0, 0, 255, ' + backgroundOpacity + ')';
+
+			                document.getElementById('opacity-color-value').textContent = textOpacity;
+			                document.getElementById('opacity-background-value').textContent = backgroundOpacity;
+			            }
+			            changeOpacity();
+            			</script>
+					</section>
+					<section>
+						<h3>Border-image</h3>
+					</section>
+					
+	                <section>
+	                    <h3>Media Queries</h3>
+	                    <p>You can apply different styles depending on a number of so called media queries.</p>
+	                    <pre><code>/* Type */
+	@media screen, projection { ... }
+
+	/* Dimension */
+	@media (min-width: 780px) { ... }
+	@media (min-device-width: 640px) { ... }
+
+	/* Orientation */ 
+	@media (orientation: portrait) { ... }
+
+	/* Color */ 
+	@media (color) { /* Screen is in color */ }
+	@media (min-color-index: 256) { /* At least 256 colors */ }
+	@media (monochrome) { /* Screen is monochrome */ }</code></pre>
+
+	                </section>
+				</section>                
+ 
+				<!-- Accès aux Périphériques -->
+				<section>
+				    <section>
+				        <img src="openstudio/img/html5/tech/HTML5_Device_Access_128.png" alt="HTML5 logo pour l'accès au périphériques">	
+				        <h3>Accès aux Périphériques</h3>
+					</section>
+					<section>
+						<h3>API de Géolocalisation</h3>
+						<p>L'API de Géolocalisation permet aux utilisateurs de donner leur localisation si ils le désirent.</p>
+						<pre><code>if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var latLng = new google.maps.LatLng(
+        position.coords.latitude, position.coords.longitude);
+    var marker = new google.maps.Marker({position: latLng, map: map});
+    map.setCenter(latLng);
+  }, errorHandler);</pre></code>
+
+						<button type="button" onclick="javascript:showlocation()">Show my location on Map</button>
+						<div id="map"></div>
+						  
+						<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+						<script type="text/javascript">
+					        var map = null;
+				            function showlocation() {
+				               // One-shot position request.
+				                navigator.geolocation.getCurrentPosition(callback);
+				            }
+					         
+					      	function callback(position) {
+						        var lat = position.coords.latitude;
+						        var lon = position.coords.longitude;
+					            var latLong = new google.maps.LatLng(lat, lon);
+				                var marker = new google.maps.Marker({
+				                    position: latLong
+				                });      
+						        marker.setMap(map);
+						        map.setZoom(8);
+						        map.setCenter(marker.getPosition());
+					      	}
+					       
+						    google.maps.event.addDomListener(window, 'load', initMap);
+						    function initMap() {
+						    	var mapOptions = {
+						          center: new google.maps.LatLng(0, 0),
+						          zoom: 1,
+						          mapTypeId: google.maps.MapTypeId.ROADMAP
+						        };
+						        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+					      	}
+				    	</script>
+					</section>
+					<section>
+						<h3>Drag & Drop</h3>
+						<pre><code>&lt;script&gt;
+document.querySelector('#dropzone').addEventListener('drop', function(e) {
+	var reader = new FileReader();
+	reader.onload = function(evt) {
+		document.querySelector('img').src = evt.target.result;
+	};
+	reader.readAsDataURL(e.dataTransfer.files[0]);
+}, false);
+&lt;/script&gt;</pre></code>
+						<div id="dropzone">Déplacer un fichier depuis son ordinateur.</div>
+						<div id="dnd-thumbnails"></div>
+						<script src="openstudio/js/dnd-lib.js" defer></script>
+			            <script defer>
+			            window.addEventListener('load', function(e) {
+			                	var dndc = new DNDFileController('dropzone', 'dnd-thumbnails');
+			            }, false);
+			            </script>	
+					</section>
+				</section>
+
+				<!-- Degradation progressive -->
+				<section>
+					<section>
+						<h1>Outils</h1>
+					</section>
+					<section>
+						<h3>Détection</h3>
+						<p>Utiliser Modernizr pour détecter si le navigateur supporte une propriété.</p>
+						<pre><code>
+	&lt;script&gt;
+		if(!Modernizr.inputtypes.date){
+			// Javascript alternative
+		}
+		if(!Modernizr.input.placeholder){
+			// Javascript alternative
+		}
+	&lt;/script&gt;
+						</pre></code>
+					</section>
+					<section>
+						<pre><code>
+&lt;!--[if lt IE 7 ]&gt;&lt;html class="no-js oldie ie6" lang="fr"&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7 ]&gt;&lt;html class="no-js oldie ie7" lang="fr"&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8 ]&gt;&lt;html class="no-js oldie ie8" lang="fr"&gt; &lt;![endif]--&gt;
+&lt;!--[if (gte IE 9)|!(IE)]&gt;&lt;!--&gt;&lt;html lang="fr" class="no-js"&gt; &lt;!--&lt;![endif]--&gt;
+						</pre></code>
+					</section>
+					<section>
+	<!--[if lt IE 9]>
+	    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+					</section>
+				</section>
+
+
+				<!-- FIN -->
+				<section>
+					<h1>Joyeux Noël</h1>
+				</section>
+
+<!--
+
+<section> 
+	                    <h1>Links and Resources</h1>
+	                    <ul>
+	                        <li><a href="http://easy-readers.net/books/adaptive-web-design/">Adaptive Web Design</a></li>
+	                        <li><a href="http://stuffandnonsense.co.uk/projects/320andup/">320 and Up</a></li>
+	                    </ul>
+	                </section>
+
+
+
+				<section>
+Géolocalisation
+Base de données locale : indexedDB
+sessionStorage : Enregistre (clé/valeur) le temps de la session
+localStorage : Enregistre (clé/valeur) permanent
+Les application offline (Application Cache)
+Drag and drop
+Document editing
+Websockets
+
+				</section>
+				<section>
+					Demo HTML5 - http://html5demos.com/
+					Html5shim - http://html5shim.googlecode.com/svn/trunk/html5.
+					Compatibilité - http://caniuse.com/ ou http://html5test.com/
+					Famework (Bonnes pratiques) - http://html5boilerplate.com/
+					http://css3please.com/
+					http://livereload.com/
+					Preprocessor : http://lesscss.org/ et http://sass-lang.com/
+					List https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills
+				</section>
+-->
+				
+
+			</div>
+
+		</div>
+
+		<script src="revealjs/lib/js/head.min.js"></script>
+		<script src="revealjs/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+			// Push reveal.js notes into the console
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+				var notes = event.currentSlide.querySelector(".notes");
+				if(notes) {
+					console.info(notes.innerHTML.replace(/\n\s+/g,'\n'));
+				}
+			} );
+		</script>
+
+	</body>
+</html>

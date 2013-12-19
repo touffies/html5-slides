@@ -1,0 +1,108 @@
+/**
+ * Custom CSS OpenStudio
+ */
+
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+.ta-c { text-align: center; }
+.ta-l { text-align: left; }
+.ta-r { text-align: right; }
+
+.reveal ul { margin-bottom: 15px; }
+.reveal li { margin-bottom: 10px; }
+
+#valid:required { border-color: blue; }
+#valid:valid { border-color: green; }
+#valid:invalid { border-color: #ff0000; }
+
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img { 
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.reveal section img.border {
+  margin: 15px 0px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #333333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -ms-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear; 
+}
+
+#canvas { 
+  background-color: #fff; 
+  box-shadow: 0 0 6px rgba(0,0,0,.3);
+  width: 90%;
+}
+
+#columns {
+  -webkit-column-count: 3;
+  -webkit-column-rule: 1px solid #bbb;
+  -webkit-column-gap: 2em;
+  -moz-column-count: 2;
+  -moz-column-rule: 1px solid #bbb;
+  -moz-column-gap: 2em;
+  column-count: 2;
+  column-rule: 1px solid #bbb;
+  column-gap: 2em;
+}
+#columns { font-size: 18px; }
+#columns-no-value { padding: 0 6px; }
+.preview {
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0,0,0,.3);
+  display: block;
+  font-size: 20px!important;
+  margin-bottom: 25px!important; padding: .5em!important;
+  text-align: left;
+  
+}
+.round {
+  background: #ccc;
+  display: inline-block;
+  width: 400px; height:100px;
+  -webkit-border-radius: 20px; border-radius: 20px;
+}
+
+#opacity-body {
+  background: url(../img/opacity_bg.jpg) top center no-repeat;
+  font-size: 84%;
+  margin: 0 auto; padding: 20px;
+  -webkit-border-radius: 8px; -khtml-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
+}
+#opacity-example {
+  background-color: rgba(0, 0, 255, 0.746094);
+  color: rgba(255, 0, 0, 0.746094);
+  font-size: 50px; line-height: 100px;
+  font-weight: bold;
+  letter-spacing: -4px;
+  margin: 100px auto;
+  text-align: center;
+  text-shadow: none;
+  -webkit-border-radius: 5px; -khtml-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+}
+
+#dropzone {
+    border: 3px dashed #ccc;
+    display: inline-block;
+    font-size: 15px!important; line-height: 100px!important;
+    margin: 25px auto!important; 
+    width: 84%;
+}
+#dropzone.rounded { background: #fff; border-color: red;}
+
+#map {
+  display: inline-block;
+  width: 84%; height: 300px;
+}
+          
