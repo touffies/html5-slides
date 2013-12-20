@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="revealjs/css/theme/sky.css" id="theme">
 		
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="openstudio/css/custom.css">
+		<link rel="stylesheet" href="assets/css/custom.css">
 
 		<!-- Syntax highlighting CSS -->
 		<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
@@ -46,7 +46,7 @@
 					<p>
 						<small>Par <a href="http://www.christophelaffont.com">Christophe Laffont</a> / <a href="http://twitter.com/touffies">@touffies</a></small>
 					</p>
-					<img src="openstudio/img/html5/HTML5_Logo_128.png" alt="HTML5 logo">
+					<img src="assets/img/html5/HTML5_Logo_128.png" alt="HTML5 logo">
 				</section>
 
 				<!-- Table of Contents -->
@@ -148,7 +148,7 @@
 				<!-- Structure et Sémantiques -->
 				<section>
 				    <section>
-				        <img src="openstudio/img/html5/tech/HTML5_Semantics_128.png" alt="HTML5 logo pour Sémantiques">
+				        <img src="assets/img/html5/tech/HTML5_Semantics_128.png" alt="HTML5 logo pour Sémantiques">
 				        <h3>Structure et sémantiques</h3>
 				    </section>
 					<!-- Structure d'un document -->
@@ -648,7 +648,7 @@
 				<!-- Multimédia -->
 				<section>
 				    <section>
-				        <img src="openstudio/img/html5/tech/HTML5_Multimedia_128.png" alt="HTML5 logo pour Mutlimédia"><img src="openstudio/img/html5/tech/HTML5_3D_effects_128.png" alt="HTML5 logo pour Graphisme">	
+				        <img src="assets/img/html5/tech/HTML5_Multimedia_128.png" alt="HTML5 logo pour Mutlimédia"><img src="assets/img/html5/tech/HTML5_3D_effects_128.png" alt="HTML5 logo pour Graphisme">	
 				        <h3>Mutlimédia / Graphique</h3>
 				    </section>
 					<section>
@@ -656,15 +656,15 @@
 		                <p>La balise &lt;audio&gt; désigne du contenu sonore présent dans un document.</p>
 		                <pre><code>
 &lt;audio controls=&quot;controls&quot;&gt;
-  &lt;source src=&quot;openstudio/audio/cheval.ogg&quot; type=&quot;audio/ogg&quot;&gt;
-  &lt;source src=&quot;openstudio/audio/cheval.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+  &lt;source src=&quot;assets/audio/cheval.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  &lt;source src=&quot;assets/audio/cheval.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 	Votre navigateur ne gère pas l'élément audio
 &lt;/audio&gt;
 						</code></pre>
 		                <p>Résultats :</p>
 		                <audio controls="controls">
-		                 	<source src="openstudio/audio/cheval.ogg" type="audio/ogg">
-		                  	<source src="openstudio/audio/cheval.mp3" type="audio/mpeg">
+		                 	<source src="assets/audio/cheval.ogg" type="audio/ogg">
+		                  	<source src="assets/audio/cheval.mp3" type="audio/mpeg">
 		                	Votre navigateur ne gère pas l'élément audio.
 		                </audio>
 		            </section>
@@ -673,8 +673,8 @@
 		                <p>La balise &lt;video&gt; est utilisé pour intégrer des vidéo.</p>
 		                <pre><code>
 &lt;video id="video" width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;
-  &lt;source src=&quot;openstudio/video/film.mp4&quot; type=&quot;video/mp4&quot;&gt;
-  &lt;source src=&quot;openstudio/video/film.ogg&quot; type=&quot;video/ogg&quot;&gt;
+  &lt;source src=&quot;assets/video/film.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;assets/video/film.ogg&quot; type=&quot;video/ogg&quot;&gt;
 	Votre navigateur ne gère pas l'élément video
 &lt;/video&gt;
 &lt;script&gt;var video = document.getElementById("video");&lt;/script&gt;
@@ -683,8 +683,8 @@
 						</code></pre>
 		                <p>Résultats :</p>
 		                <video id="video" width="320" height="240" controls="controls">
-		                  <source src="openstudio/video/film.mp4" type="video/mp4">
-		                  <source src="openstudio/video/film.ogg" type="video/ogg">
+		                  <source src="assets/video/film.mp4" type="video/mp4">
+		                  <source src="assets/video/film.ogg" type="video/ogg">
 		                	Votre navigateur ne gère pas l'élément video.
 		                </video>
 		                <br>
@@ -756,7 +756,7 @@
 				<!-- Multimédia -->
 				<section>
 				    <section>
-				        <img src="openstudio/img/html5/tech/HTML5_Styling_128.png" alt="HTML5 logo pour CSS">	
+				        <img src="assets/img/html5/tech/HTML5_Styling_128.png" alt="HTML5 logo pour CSS">	
 				        <h3>CSS 3</h3>
 				    </section>
 				    <section>
@@ -901,7 +901,7 @@ border-radius: 20px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 1
 				<!-- Accès aux Périphériques -->
 				<section>
 				    <section>
-				        <img src="openstudio/img/html5/tech/HTML5_Device_Access_128.png" alt="HTML5 logo pour l'accès au périphériques">	
+				        <img src="assets/img/html5/tech/HTML5_Device_Access_128.png" alt="HTML5 logo pour l'accès au périphériques">	
 				        <h3>Accès aux Périphériques</h3>
 					</section>
 					<section>
@@ -962,7 +962,7 @@ document.querySelector('#dropzone').addEventListener('drop', function(e) {
 &lt;/script&gt;</pre></code>
 						<div id="dropzone">Déplacer un fichier depuis son ordinateur.</div>
 						<div id="dnd-thumbnails"></div>
-						<script src="openstudio/js/dnd-lib.js" defer></script>
+						<script src="assets/js/dnd-lib.js" defer></script>
 			            <script defer>
 			            window.addEventListener('load', function(e) {
 			                	var dndc = new DNDFileController('dropzone', 'dnd-thumbnails');
