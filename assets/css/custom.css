@@ -2,6 +2,7 @@
  * Custom CSS OpenStudio
  */
 
+details summary { outline: none; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -13,7 +14,6 @@
 .reveal ul { margin-bottom: 15px; }
 .reveal li { margin-bottom: 10px; }
 
-#valid:required { border-color: blue; }
 #valid:valid { border-color: green; }
 #valid:invalid { border-color: #ff0000; }
 

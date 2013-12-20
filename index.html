@@ -539,15 +539,15 @@
 			    		<pre><code>
 &lt;input type="email" name="email"&gt;
 
-&lt;input type="email" name="email" pattern=""&gt;
+&lt;input type="email" name="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"&gt;
 				        </code></pre>
 				        <p>Résultats :</p>
-				        <form onsubmit="return false;">
-				        	<input type="email" name="email" style="width:50%;padding:6px;" placeholder="Validation par défaut">
+				        <form onsubmit="alert('ok');return false;">
+				        	<input type="email" name="email" style="width:50%;padding:6px;" placeholder="Validation par défaut" required>
 				        	<button type="submit">Tester</button>
 			    		</form>
-			    		<form onsubmit="return false;">
-				        	<input type="email" name="email" style="width:50%;padding:6px;" placeholder="Validation par regex">
+			    		<form onsubmit="alert('ok');return false;">
+				        	<input type="email" name="email" style="width:50%;padding:6px;" placeholder="Validation par regex" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
 			   				<button type="submit">Tester</button>
 			    		</form> 			
 				    </section>
@@ -772,6 +772,13 @@
 				    		<li><mark>-webkit-</mark> : Safari et Chrome (Moteur de rendu WebKit)</li>
 				    		<li><mark>-khtml-</mark> : Linux KDE (Moteur de rendu KHTML)</li>
 				    	</ul>
+				    	<aside class="notes">
+				    		Windows	 Trident		Développé par Microsoft (1995)
+				    		Opera	 Presto	 		Développé par l'éditeur de logiciel norvégien Opera Software (1995) (Version mobile)
+				    		Firefox	 Gecko	 		Navigateur open-source, développé et distribué par la Mozilla Foundation (2002).
+				    		Safari 	 HTML WebKit	Installé par défaut pour Mac OS X (Apple) depuis qu'Internet Explorer n'est plus 							développé par Microsoft sur Mac (2003).
+				    		Chrome	 HTML WebKit	Produit par Google, Chrome est le dernier navigateur né (septembre 2008).
+				    	</aside>
 				    </section>
 				    <section>
 				    	<h3>Bordure arrondie</h3>
@@ -977,20 +984,22 @@ document.querySelector('#dropzone').addEventListener('drop', function(e) {
 						<h1>Outils</h1>
 					</section>
 					<section>
-						<h3>Détection</h3>
+						<h3>Amélioration progressive</h3>
 						<p>Utiliser Modernizr pour détecter si le navigateur supporte une propriété.</p>
-						<pre><code>
-	&lt;script&gt;
-		if(!Modernizr.inputtypes.date){
-			// Javascript alternative
-		}
-		if(!Modernizr.input.placeholder){
-			// Javascript alternative
-		}
-	&lt;/script&gt;
-						</pre></code>
+						<pre><code>.element { /* Pour les navigateurs ne reconnaissant pas CSS3 border-image */  
+   border: 1px inset #666;
+}
+.borderimage .element {  /* Pour les navigateurs reconnaissant border-image */ 
+   border: none;
+   -webkit-border-image: url(border.png) 0 5 0 5 stretch; -moz-border-image: url(border.png) 0 5 0 5 stretch; border-image: url(border.png) 0 5 0 5 stretch;
+}</pre></code>
+<pre><code>if(!Modernizr.input.placeholder){
+	// Javascript alternative
+}</pre></code>
 					</section>
 					<section>
+						<h3>Anciens Navigateurs</h3>
+						<p>Utilisation des commentaires conditionnels pour cibler les anciens navigateurs.</p>
 						<pre><code>
 &lt;!--[if lt IE 7 ]&gt;&lt;html class="no-js oldie ie6" lang="fr"&gt; &lt;![endif]--&gt;
 &lt;!--[if IE 7 ]&gt;&lt;html class="no-js oldie ie7" lang="fr"&gt; &lt;![endif]--&gt;
@@ -998,55 +1007,12 @@ document.querySelector('#dropzone').addEventListener('drop', function(e) {
 &lt;!--[if (gte IE 9)|!(IE)]&gt;&lt;!--&gt;&lt;html lang="fr" class="no-js"&gt; &lt;!--&lt;![endif]--&gt;
 						</pre></code>
 					</section>
-					<section>
-	<!--[if lt IE 9]>
-	    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-					</section>
 				</section>
-
 
 				<!-- FIN -->
 				<section>
 					<h1>Joyeux Noël</h1>
 				</section>
-
-<!--
-
-<section> 
-	                    <h1>Links and Resources</h1>
-	                    <ul>
-	                        <li><a href="http://easy-readers.net/books/adaptive-web-design/">Adaptive Web Design</a></li>
-	                        <li><a href="http://stuffandnonsense.co.uk/projects/320andup/">320 and Up</a></li>
-	                    </ul>
-	                </section>
-
-
-
-				<section>
-Géolocalisation
-Base de données locale : indexedDB
-sessionStorage : Enregistre (clé/valeur) le temps de la session
-localStorage : Enregistre (clé/valeur) permanent
-Les application offline (Application Cache)
-Drag and drop
-Document editing
-Websockets
-
-				</section>
-				<section>
-					Demo HTML5 - http://html5demos.com/
-					Html5shim - http://html5shim.googlecode.com/svn/trunk/html5.
-					Compatibilité - http://caniuse.com/ ou http://html5test.com/
-					Famework (Bonnes pratiques) - http://html5boilerplate.com/
-					http://css3please.com/
-					http://livereload.com/
-					Preprocessor : http://lesscss.org/ et http://sass-lang.com/
-					List https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills
-				</section>
--->
-				
-
 			</div>
 
 		</div>
