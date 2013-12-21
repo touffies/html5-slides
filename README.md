@@ -1,5 +1,6 @@
 # Formation HTML5
 
+<a href="http://touffies.github.io/html5-slides">Cliquez ici</a> pour voir la présentation.
 
 ## Plan de la présentation
 
@@ -8,13 +9,13 @@
   * Structure d'un document
   * Structure du contenu
   * Les Formulaires
-3. Mutlimédia / Grapghique
-4. CSS3
-5. Et plus encore
-  * Outils
-  * Framework CSS
+3. CSS3
+4. Et plus encore
+  * Mutlimédia / Grapghique
+  * Accès aux Périphériques
+5. Outils
 6. Atelier pratique
-  * Réalisons d'une page web ensemble</li>
+  * Réalisons d'une page web ensemble
 
 ---
 
