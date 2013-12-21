@@ -15,7 +15,9 @@ details summary { outline: none; }
 .reveal li { margin-bottom: 10px; }
 
 #valid:valid { border-color: green; }
-#valid:invalid { border-color: #ff0000; }
+#valid:invalid { border-color: red; }
+
+.inp-txt { padding: 8px; width: 50%; }
 
 
 /*********************************************
