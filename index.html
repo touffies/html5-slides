@@ -190,8 +190,7 @@
 				    <section>
 				        <h3>Métadonnées du document</h3>
 				        <p>L'élément &lt;head&gt; englobe un certain nombre d'informations utiles pour l'affichage et le référencement :</p>
-				        <pre><code>
-&lt;head&gt;
+				        <pre><code>&lt;head&gt;
 	&lt;meta charset="utf-8"&gt;
 	&lt;title&gt;Titre de la page&lt;/title&gt;
 	&lt;meta name="descritpion" content=""&gt;
@@ -545,15 +544,15 @@
 			    		<pre><code>
 &lt;input type="email" name="email"&gt;
 
-&lt;input type="email" name="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"&gt;
+&lt;input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"&gt;
 				        </code></pre>
 				        <p>Résultats :</p>
 				        <form onsubmit="alert('ok');return false;">
-				        	<input type="email" name="email" style="width:50%;padding:6px;" placeholder="Validation par défaut" required>
+				        	<input type="email" name="email" class="inp-txt" placeholder="Validation par défaut" required>
 				        	<button type="submit">Tester</button>
 			    		</form>
 			    		<form onsubmit="alert('ok');return false;">
-				        	<input type="email" name="email" style="width:50%;padding:6px;" placeholder="Validation par regex" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
+				        	<input type="email" name="email" class="inp-txt" placeholder="Validation par regex" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
 			   				<button type="submit">Tester</button>
 			    		</form> 			
 				    </section>
@@ -566,7 +565,7 @@
 				        </code></pre>
 				        <p>Résultats :</p>
 				        <label for="color">Sélectionner une couleur :</label>
-				        <input type="color" name="color" id="color" value="ff0000" style="width:30%;padding:6px;">
+				        <input type="color" name="color" id="color" value="ff0000" class="inp-txt" style="width:30%">
 				    </section>
 				    <section>
 				    	<h3>&lt;date&gt;</h3>
@@ -575,7 +574,7 @@
 &lt;input type="date" name="date" id="date" value="2013-12-24"&gt;
 				        </code></pre>
 				        <p>Résultats :</p>
-				        <input type="date" name="date" id="date" value="2013-12-24" style="width:30%;padding:6px;">
+				        <input type="date" name="date" id="date" value="2013-12-24" class="inp-txt" style="width:30%;">
 				    </section>
 				    <section>
 				    	<h3>&lt;range&gt;</h3>
@@ -584,7 +583,7 @@
 &lt;input type="range" name="range" id="range" min="0" max="20" step="1" value="0"&gt;
 				        </code></pre>
 				        <p>Résultats :</p>
-				        <input type="range" name="range" id="range" min="0" max="20" step="1" value="0" style="width:50%;padding:6px;">
+				        <input type="range" name="range" id="range" min="0" max="20" step="1" value="0" class="inp-txt">
 				    </section>
 				    <section>
 				    	<h3>Placeholder</h3>
@@ -593,7 +592,7 @@
 &lt;input type="text" name="firstame" placeholder="Nom de famille"&gt;
 				        </code></pre>
 				        <p>Résultats :</p>
-				        <input type="text" name="firstame" style="width:50%;padding:6px;" placeholder="Nom de famille">				    
+				        <input type="text" name="firstame" class="inp-txt" placeholder="Nom de famille">				    
 				    </section>
 				    <section>
 				    	<h3>Autofocus</h3>
@@ -602,7 +601,7 @@
 &lt;input type="text" name="firstame" autofocus&gt;
 				        </code></pre>
 				        <p>Résultats :</p>
-				        <input type="text" name="firstame" style="width:50%;padding:6px;" autofocus>				    
+				        <input type="text" name="firstame" class="inp-txt" autofocus>				    
 				    </section>
 				    <section>
 				    	<h3>Auto-complete</h3>
@@ -617,15 +616,14 @@
 				    	<h3>Required</h3>
 				    	<p>Previent la soumission du formulaire si les champs requis non pas été complétés.</p>
 						<pre><code>&lt;style&gt;
-	input:required { border-color: blue; }
 	input:valid { border-color: green; }
-	input:invalid { border-color: #ff0000; }
+	input:invalid { border-color: red; }
 &lt;/style&gt;						
 &lt;input type="text" name="firstame" required&gt;
 				        </code></pre>
 				        <p>Résultats :</p>
 				        <form onsubmit="alert('Yeah!!');return false;">
-				        	<input type="text" name="firstame" id="valid" style="width:50%;padding:6px;" required>	
+				        	<input type="text" name="firstame" id="valid" class="inp-txt" required>	
 				        	<button type="submit">Tester</button>
 				        </form>			    
 				    </section>
@@ -641,7 +639,7 @@
 &lt;/datalist&gt;
 				        </code></pre>
 				        <p>Résultats :</p>
-				        <input type="text" name="country" list="country" placeholder="Qu'elle est votre pays de résidence" style="width:50%;padding:6px;">	
+				        <input type="text" name="country" list="country" placeholder="Qu'elle est votre pays de résidence" class="inp-txt">	
 				        <datalist id="country">
 							<option value="Espagne">Espagne</option>
 							<option value="France">France</option>
@@ -690,9 +688,9 @@ border-radius: 20px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 1
 				    	<p>Résultats :</p>
 				    	<div class="round"></div>
 				    </section>
-				    <section>
+				    <!--section>
 				    	<h3>CSS Sélecteur</h3>
-				    </section>
+				    </section-->
 				    <section>
 				    	<h3>Colonne</h3>
 			    		<div class="preview">
@@ -778,13 +776,13 @@ border-radius: 20px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 1
 			            changeOpacity();
             			</script>
 					</section>
-					<section>
+					<!--section>
 						<h3>Border-image</h3>
-					</section>
+					</section-->
 					
 	                <section>
 	                    <h3>Media Queries</h3>
-	                    <p>You can apply different styles depending on a number of so called media queries.</p>
+	                    <p>L'intérêt est de pouvoir satisfaire des contraintes de dimensions, de résolutions et d'autres critères variés pour améliorer l'apparence graphique et la lisibilité (voire l'utilisabilité) d'un site web</p>
 	                    <pre><code>/* Type */
 	@media screen, projection { ... }
 
@@ -795,7 +793,7 @@ border-radius: 20px; /* Android 2.1+, Chrome, Firefox 4+, IE 9+, iOS 4+, Opera 1
 	/* Orientation */ 
 	@media (orientation: portrait) { ... }
 
-	/* Color */ 
+	/* Couleur */ 
 	@media (color) { /* Screen is in color */ }
 	@media (min-color-index: 256) { /* At least 256 colors */ }
 	@media (monochrome) { /* Screen is monochrome */ }</code></pre>
