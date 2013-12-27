@@ -1,0 +1,107 @@
+
+// Global
+p {
+  font-family: Georgia, Arial, sans-serif;
+  font-style: italic;
+}
+
+h1, h2, h3 {
+  font-family: "Arial Black", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+h2, h3 {
+  font-size: 24px;
+}
+
+.col-lg-4 {
+  text-align: center;
+}
+
+.block {
+	h2 {
+	  font-size: 38px;
+	  color: #4d4c4c;
+	  margin-bottom: 40px;
+	}
+	.row {
+	  margin: 20px 0;
+	}
+}
+
+
+// Présentation
+#presentation {
+	.jumbotron {
+	    margin-top: 80px;
+	  	h1 {
+			font-size: 50px;
+		}
+		p {
+			font-size: 40px;
+		}
+	}
+}
+
+// Competences
+#competences {
+  	padding: @section-padding;
+	
+	img.img-circle {
+	  width: 140px;
+	  height: 140px;
+
+	  &:hover {
+  		border: 10px solid @primary-color;
+	  }
+	}
+}
+
+// Experiences
+#experiences {
+  padding:@section-padding;
+  .row {
+	  margin-left: 40px;
+	}
+}
+
+// Formations
+#formations {
+	padding: 40px 0;
+    h3 {
+	  font-family: Georgia, Arial, sans-serif;
+	  font-style: italic;
+	  text-transform: none;
+	}
+    img {
+    	transition: transform 0.8s ease-in;
+		-webkit-transition: -webkit-transform 0.8s ease-in; /* Safari and Chrome */
+		-moz-transition: -moz-transform 0.8s ease-in; /* Safari and Chrome */
+
+    	&:hover {
+		  .scale(0.90);
+		  .blur(5px);
+		}
+	}
+}
+
+// Contact
+#contact {
+	background: @footer-bg;
+	margin-bottom: 0;
+	min-height: 50px;
+	address {
+	    color: @footer-text-color;
+	    line-height: 50px;
+	}
+	a {
+  		color: @primary-color;
+  		&:hover {
+		  color: @footer-text-color;
+		  text-decoration: none;
+		}
+	}
+}
+
+
+

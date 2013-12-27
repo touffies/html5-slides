@@ -1,0 +1,17 @@
+// Transformation
+// Redimmensionner
+.scale(@value) {
+  -webkit-transform: scale(@value);
+       -o-transform: scale(@value);
+          transform: scale(@value);
+}
+
+
+// Ajouter un blur
+.blur(@value) {
+  -webkit-filter: blur(@value);
+     -moz-filter: blur(@value);
+      -ms-filter: blur(@value); // IE10+
+       -o-filter: blur(@value);
+          filter: blur(@value);
+}
